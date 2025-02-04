@@ -1,0 +1,11 @@
+.box{
+
+    background-color: red;
+    width: 125px;
+    border: 5px solid greenyellow;
+    padding: 50px;
+    margin: 10px;
+    display: flex;
+    margin-left: 100px;
+}
+
