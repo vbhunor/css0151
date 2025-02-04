@@ -13,4 +13,4 @@ d) Belső térköz: 50px (padding: 50px;)<br>
 e) Külső térköz: 10px (margin: 10px;)<br>
 f) Bal oldali külső térköz: 100px (margin-left: 100px;)<br>
 g) Megjelenítés: flex (display: flex;)<br>
-e) Hozd létre a megfelelő HTML és CSS fájlokat, majd ellenőrizd az eredményt böngészőben!
+1. Hozd létre a megfelelő HTML és CSS fájlokat, majd ellenőrizd az eredményt böngészőben!
