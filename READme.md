@@ -8,7 +8,7 @@ Web: https://szit.hu<br>
 
 CSS Feladat
 
-Készíts egy HTML és CSS fájlt, amelyben a következő feltételeket kell beállítanod:
+<strong>Készíts egy HTML és CSS fájlt, amelyben a következő feltételeket kell beállítanod:</strong>
 
 1. A HTML fájl nyelve legyen magyar (lang="hu").<br>
 2. Hozz létre egy <div> elemet, amelynek az osztálya box legyen.<br>
