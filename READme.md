@@ -1,3 +1,11 @@
+Szerző: Sallai András <br>
+Copyright © 2014, Sallai András<br>
+Szerkesztve: 2014-2024<br>
+Licenc: CC BY-SA 4.0<br>
+Web: https://szit.hu<br>
+
+
+
 CSS Feladat
 
 Készíts egy HTML és CSS fájlt, amelyben a következő feltételeket kell beállítanod:
