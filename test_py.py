@@ -1,71 +1,74 @@
 import pytest
 from bs4 import BeautifulSoup
 
+def test_html_language():
+    with open("index.html", encoding="utf-8") as f:
+        content = f.read()
+        soup = BeautifulSoup(content, "html.parser")
+    
+    assert "lang" in soup.html.attrs, "Hiányzik a lang attribútum a <html> elemből."
+    assert soup.html["lang"] == "hu", "A lang attribútum értéke nem 'hu'."
 
-def load_file(filename):
-    with open(filename, "r", encoding="utf-8") as file:
-        return file.read()
-
-
-def test_html_structure():
-    html_content = load_file("index.html")
-    soup = BeautifulSoup(html_content, "html.parser")
-
-    score = 0
-
-    # 1. Ellenőrizzük a nyelvi beállítást
-    if soup.html and soup.html.get("lang") == "hu":
-        score += 1
-    else:
-        print("HIBA: A <html> elem nyelve nem 'hu'.")
-
-    # 2. Ellenőrizzük, hogy van-e legalább 5 "box" osztályú div
+def test_html_boxes():
+    with open("index.html", encoding="utf-8") as f:
+        content = f.read()
+        soup = BeautifulSoup(content, "html.parser")
+    
     boxes = soup.find_all("div", class_="box")
-    if len(boxes) >= 5:
-        score += 1
-    else:
-        print(
-            f"HIBA: Csak {len(boxes)} darab 'box' osztályú div található, pedig legalább 5 kellene."
-        )
+    assert len(boxes) >= 5, f"Csak {len(boxes)} darab .box elem található, de legalább 5 kell."
 
-    print(f"HTML teszt pontszám: {score}/2")
-    assert score == 2, "A HTML struktúra nem megfelelő."
+def test_html_css_link():
+    with open("index.html", encoding="utf-8") as f:
+        content = f.read()
+        soup = BeautifulSoup(content, "html.parser")
+    
+    linked_styles = soup.find("link", {"rel": "stylesheet", "href": "style.css"})
+    assert linked_styles, "A CSS fájl nincs linkelve, vagy rossz az elérési út."
 
+def test_css_box_class_exists():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert ".box {" in content, "Hiányzik a .box osztály a CSS fájlból."
 
-def test_css_properties():
-    css_content = load_file("style.css")
+def test_css_background_color():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "background-color: red;" in content, "A háttérszín nem piros (background-color: red;)."
 
-    score = 0
+def test_css_width():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "width: 125px;" in content, "A szélesség nem 125px (width: 125px;)."
 
-    properties = {
-        "background-color": "red",
-        "width": "125px",
-        "border": "5px solid greenyellow",
-        "padding": "50px",
-        "margin": "10px",
-        "margin-left": "100px",
-        "display": "flex",
-    }
+def test_css_border():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "border: 5px solid greenyellow;" in content, "A keret nem 5px széles és zöldessárga (border: 5px solid greenyellow;)."
 
-    for prop, value in properties.items():
-        if f"{prop}: {value};" in css_content:
-            score += 1
-        else:
-            print(
-                f"HIBA: A '{prop}' tulajdonság nincs megfelelően beállítva (elvárt: {value})."
-            )
+def test_css_padding():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "padding: 50px;" in content, "A belső térköz nem 50px (padding: 50px;)."
 
-    print(f"CSS teszt pontszám: {score}/7")
-    assert score == 7, "A CSS tulajdonságok nem megfelelőek."
+def test_css_margin():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "margin: 10px;" in content, "A külső térköz nem 10px (margin: 10px;)."
 
+def test_css_margin_left():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "margin-left: 100px;" in content, "A bal oldali külső térköz nem 100px (margin-left: 100px;)."
 
-def test_total_score():
-    test_html_structure()
-    test_css_properties()
-    total_score = 2 + 7  # HTML + CSS teszt összpontszám
-    print(f"Összesített pontszám: {total_score}/9")
-    assert total_score == 9, "Az összpontszám nem éri el a 9-et."
-
-
-if __name__ == "__main__":
-    pytest.main(["-v", "--capture=no"])
+def test_css_display_flex():
+    with open("style.css", encoding="utf-8") as f:
+        content = f.read()
+    
+    assert "display: flex;" in content, "A megjelenítés nem flex (display: flex;)."
