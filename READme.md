@@ -4,11 +4,11 @@ Szerkesztve: 2014-2024<br>
 Licenc: CC BY-SA 4.0<br>
 Web: https://szit.hu<br>
 
+<hr>
 
+#CSS Feladat
 
-CSS Feladat
-
-Készíts egy HTML és CSS fájlt, amelyben a következő feltételeket kell beállítanod:
+#Készíts egy HTML és CSS fájlt, amelyben a következő feltételeket kell beállítanod:
 
 1. A HTML fájl nyelve legyen magyar (lang="hu").<br>
 2. Hozz létre egy <div> elemet, amelynek az osztálya box legyen.<br>
