@@ -6,7 +6,7 @@ Web: https://szit.hu<br>
 
 <hr>
 
-CSS Feladat
+<h1>CSS Feladat</h1>
 
 <strong>Készíts egy HTML és CSS fájlt, amelyben a következő feltételeket kell beállítanod:</strong>
 
